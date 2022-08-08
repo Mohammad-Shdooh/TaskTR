@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TaskTR.Models.Containers>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.primaryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.secondaryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FK_TubeTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TubeList.primaryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TubeList.secondaryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TubeList.colorHex)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.primaryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.secondaryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FK_TubeTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TubeList.primaryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TubeList.secondaryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TubeList.colorHex)
+        </td>
+        <td hidden>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
